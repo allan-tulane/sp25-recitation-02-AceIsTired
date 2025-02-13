@@ -51,27 +51,4 @@ where $W(1) = 1$.
 
 When $c < \log_b a$, $n^c$ is dominated by $a⋅W(n/b)$ and grows at a rate of O(n^(log_b a)) because $n^c$ doesn't grow as fast as the function's recursive calls. When $c > \log_b a$, $n^c$ dominates and grows at a rate of $O(n^c)$. When they're equal, the terms balance out and grow at a rate of $O(n^clog n)$
 
-Comparing: f(n) = n VS f(n) = n^2
-|     n |    W_1 |       W_2 |
-|-------|--------|-----------|
-|    10 |     36 |       174 |
-|    20 |     92 |       748 |
-|    50 |    276 |      4790 |
-|   100 |    652 |     19580 |
-|  1000 |   9120 |   1990744 |
-|  5000 |  61728 |  49957880 |
-| 10000 | 133456 | 199915760 |
-
-Comparing: f(n) = n VS f(n) = n^0.5
-|     n |       W_1 |       W_2 |
-|-------|-----------|-----------|
-|    10 |       174 |    21.291 |
-|    20 |       748 |    47.055 |
-|    50 |      4790 |   110.236 |
-|   100 |     19580 |   230.472 |
-|  1000 |   1990744 |  2075.117 |
-|  5000 |  49957880 | 14251.208 |
-| 10000 | 199915760 | 28602.416 |
-- [ ] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should.
-
-**TODO: your answer goes here**
+- [X] 6. (3 points) $W(n)$ is meant to represent the running time of some recursive algorithm. Suppose we always had $a$ processors available to us and we wanted to compute the span of the same algorithm. Implement the function `span_calc` to compute the empirical span, where the work of the algorithm is given by $W(n)$. Implement `test_compare_span` to create a new comparison function for comparing span functions. Derive the asymptotic expressions for the span of the recurrences you used in problem 4 above. Confirm that everything matches up as it should.
