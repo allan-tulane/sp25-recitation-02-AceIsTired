@@ -55,7 +55,7 @@ def span_calc(n, a, b, f):
 	Returns: the value of W(n).
 	"""
 	if n <= 1:
-		return f(n)
+		return 1
 	else:
 		return max(span_calc(n // b, a, b, f) for _ in range(a)) + f(n)
 
@@ -107,11 +107,7 @@ def compare_span(span_fn1, span_fn2, sizes=[10, 20, 50, 100, 1000, 5000, 10000])
 		# compute W(n) using current a, b, f
 		result.append((
 			n,
-			span_fn1,
-			span_fn2
+			span_fn1(n),
+			span_fn2(n)
 			))
 	return result
-
-al = span_calc(lambda n: n, 2, 2, lambda n: n**1)
-bl = span_calc(lambda n: n, 2, 2, lambda n: n**2)
-print_results(compare_span(a, b))

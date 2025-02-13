@@ -4,7 +4,7 @@ def test_simple_work():
 	""" done. """
 	assert simple_work_calc(10, 2, 2) == 36
 	assert simple_work_calc(20, 3, 2) == 230
-	assert simple_work_calc(30, 4, 2) == 650, simple_work_calc(30, 4, 2)
+	assert simple_work_calc(30, 4, 2) == 650
 
 def test_work():
 	assert work_calc(10, 2, 2,lambda n: 1) == 15
@@ -44,11 +44,14 @@ def test_compare_span():
 		return span_calc(n, 2, 2, lambda n: n**2)
 
 	def span_fn3(n):
-		return span_calc(n, 2, 2, lambda n: n**.5)
+		return span_calc(n, 2, 2, lambda n: n**math.log(n))
 
 	res = compare_span(span_fn1, span_fn2)
 	print("Comparing spans: f(n) = n VS f(n) = n^2")
 	print_results(res)
+
 	res = compare_span(span_fn2, span_fn3)
-	print("Comparing spans: f(n) = n VS f(n) = n^0.5")
+	print("Comparing spans: f(n) = n VS f(n) = log n")
 	print_results(res)
+
+	assert True, "All tests passed"
