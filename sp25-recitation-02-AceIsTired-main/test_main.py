@@ -5,11 +5,17 @@ def test_simple_work():
 	assert simple_work_calc(10, 2, 2) == 36
 	assert simple_work_calc(20, 3, 2) == 230
 	assert simple_work_calc(30, 4, 2) == 650
+	assert simple_work_calc(40, 5, 2) == 1500
+	assert simple_work_calc(50, 6, 2) == 4500
+	assert simple_work_calc(60, 7, 2) == 12600
 
 def test_work():
 	assert work_calc(10, 2, 2,lambda n: 1) == 15
 	assert work_calc(20, 1, 2, lambda n: n*n) == 530
 	assert work_calc(30, 3, 2, lambda n: n) == 300
+	assert work_calc(40, 4, 2, lambda n: n) == 1600
+	assert work_calc(50, 5, 2, lambda n: n) == 31250
+	assert work_calc(60, 6, 2, lambda n: n) == 129600
 
 
 def test_compare_work():
@@ -24,34 +30,13 @@ def test_compare_work():
 	def work_fn2(n):
 		return work_calc(n, 2, 2, lambda n: n**2)
 
-	def work_fn3(n):
-		return work_calc(n, 2, 2, lambda n: n**.5)
-
-	res = compare_work(work_fn1, work_fn2)
-	print("Comparing: f(n) = n VS f(n) = n^2")
-	print_results(res)
-	res = compare_work(work_fn2, work_fn3)
-	print("Comparing: f(n) = n VS f(n) = n^0.5")
-	print_results(res)
+	print(compare_work(work_fn1, work_fn2))
 
 
 def test_compare_span():
-	def span_fn1(n):
-		return span_calc(n, 2, 2, lambda n: n**1)
 
-	# create work_fn2
-	def span_fn2(n):
-		return span_calc(n, 2, 2, lambda n: n**2)
+	span1 = lambda n: span_calc(n, 2, 2, lambda n: n**1)
 
-	def span_fn3(n):
-		return span_calc(n, 2, 2, lambda n: n**math.log(n))
+	span2 = lambda n: span_calc(n, 2, 2, lambda n: n**2)
 
-	res = compare_span(span_fn1, span_fn2)
-	print("Comparing spans: f(n) = n VS f(n) = n^2")
-	print_results(res)
-
-	res = compare_span(span_fn2, span_fn3)
-	print("Comparing spans: f(n) = n VS f(n) = log n")
-	print_results(res)
-
-	assert True, "All tests passed"
+	print(compare_span(span1, span2))
